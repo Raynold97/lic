@@ -16,6 +16,13 @@ body{
    
 }
 
+.table-keywords{
+    position: absolute;
+    transform: translate(-50%,50%);
+    border: collapse;
+    color:aqua;
+}
+
 /* .btn{
     border: 1px solid #3498db;
     background: none;

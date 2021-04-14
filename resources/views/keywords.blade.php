@@ -9,17 +9,7 @@
 </form>
 <br> 
 
-{{-- <div class="container" >
-  {!!Form::open(['action' => [ 'App\Http\Controllers\ContinutController@categorie'], 'method'=>'POST' , 'enctype' => 'multipart/form-data'])!!}
-  {{Form::label('categorie', 'categorie')}}
-    {{Form::text('nume', $categorie->nume,['class'=>'form-control', 'password'=>$categorie->nume])}}
-  
-  
-   <br>
-   <br>
-   
- <b> {{Form::submit('Editeaza profilul', ['class'=>'btn btn-primary'])}}</b>
-  {!!Form::close()!!} --}}
+
   <hr>
 
 
@@ -34,25 +24,13 @@
             </form>  
             
             
-            {{-- <table border="2" >
-    
-             
-           
-                @foreach ($categorii as $cat )
-                
-                   
-                   <tr border="2" >
-                        
-                         <td width="200"><h4><a href="/continut/{{$cat->id}}"> {{$cat->nume}}</a></h4></td>
-
-                   @endforeach
-              </tr></table> --}}
+            
 
 <h1 style="margin-top: 50px">Nume postari</h1>
 
 
 
-   <table border="2" >
+   <table border="2" name="table-keywords" >
     
   <tr>
     {{-- @if(Auth::user()->id == $continut->idUtilizator) --}}
@@ -87,45 +65,12 @@
               {!! Form::close() !!} 
               <div>
 
-<div style="padding-top: 10px">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#yourModal" style="padding-top: 5px">+</button>
+ <div style="padding-top: 10px">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#yourModal{{$key->id}}">+</button>
 
-              <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                     
-                    </div>
-                    <div class="modal-body">
-                      <form enctype="multipart/form-data" action="{{ action('App\Http\Controllers\ContinutController@storeKeywords') }}"
-                      method="POST">
-          
-                       
-                          @csrf
-                          <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                          <input type="text"  name=<?php echo $key->id?>  class="form-control" placeholder="keywords"/>
-                           {{-- <input type="submit" class="btn btn-success" name="Adauga"/> --}}
-                           <button type="submit" class="btn btn-success">Adauga keyword</button>
-                      </form> 
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      {{-- <input type="submit" class="btn btn-primary"/> --}}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-
-              </div>
-</td>
-        {{-- <td border="2" width="150"> 
-
-
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#yourModal">+</button>
-
-            <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal fade" id="yourModal{{$key->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              {{-- <form enctype="multipart/form-data" action="{{ action('App\Http\Controllers\ContinutController@storeKeywords') }}"
+              method="POST"> --}}
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -133,26 +78,30 @@
                    
                   </div>
                   <div class="modal-body">
+                    {{-- <form enctype="multipart/form-data" action="{{ action('App\Http\Controllers\ContinutController@storeKeywords') }}"
+                    method="POST"> --}}
                     <form enctype="multipart/form-data" action="{{ action('App\Http\Controllers\ContinutController@storeKeywords') }}"
                     method="POST">
-        
                      
                         @csrf
                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
                         <input type="text"  name=<?php echo $key->id?>  class="form-control" placeholder="keywords"/>
-                         <input type="submit" class="btn btn-primary"/>
-                    </form> 
+                         {{-- <input type="submit" class="btn btn-primary"/> --}}
+                    {{-- </form>  --}}
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    {{-- <input type="submit" class="btn btn-primary"/> --}}
+                     <input type="submit" class="btn btn-primary"/>
+                  {{-- </form> --}}
                   </div>
                 </div>
               </div>
+           
             </div>
-
-
-
+          </form>
+          </div> 
+</td>
+        
 
 
 
@@ -169,11 +118,9 @@
             
             
            
-        {{-- </td> --}}
-       
-        {{-- @endif --}}
+        
       @endforeach
-      {{-- @endif --}}
+    
     </tr>
   </table> 
 

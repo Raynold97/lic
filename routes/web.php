@@ -15,9 +15,9 @@ use App\Http\Controllers\ContinutController;
 |
 */
 Route::get('/',function(){
-    return Activity::where('log_name', 'user')->get();
-    return view('dashboard');
-    
+    // return Activity::where('log_name', 'user')->get();
+
+    return Activity::all();
 });
 Route::get('continut/ac',function(){
     return Activity::all();

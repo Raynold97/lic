@@ -11,6 +11,14 @@ body{
     /* transform: translate(50%,-50%); */
 }
 
+/* .table{
+    position: absolute;
+    transform: translate(-50%,50%);
+    border: collapse;
+
+
+} */
+
 
 .search-box{
     position: absolute;

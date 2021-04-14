@@ -13,7 +13,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable,Commenter,LogsActivity;
 
-    protected static $logAttributes=['Nume', 'email'];
+    protected static $logAttributes=['UserName', 'email'];
 
     protected static $recordEvents=['created','updated'];
 
